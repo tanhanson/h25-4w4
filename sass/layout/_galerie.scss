@@ -1,0 +1,27 @@
+.galerie{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
+   
+    @media screen and (max-width: 800px){
+
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+          
+       }
+
+   
+    &__img{
+        width: 15rem;
+        height: 10rem;
+
+      
+    }
+}
+h4{
+    text-align: center;
+}
+
+
+
+
