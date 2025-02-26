@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-<h1>----------------- INDEX.PHP --------------------</h1>
     <section class = "hero">
             <div class="hero__contenu global">
                 <h1 class="hero__titre">Voyagez dans le monde avec Air Canada</h1>

@@ -162,11 +162,6 @@ p {
 .entete__logo img {
   width: 100px;
 }
-
-.custom-logo {
-  max-width: 150px;
-  height: auto;
-  }
 .entete #menu-burger {
   display: none;
 }
