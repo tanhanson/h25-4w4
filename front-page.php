@@ -2,12 +2,12 @@
 
     <section class = "hero">
             <div class="hero__contenu global">
-                <h1 class="hero__titre">Voyagez dans le monde avec Air Canada</h1>
+                <h1 class="hero__titre"><?php bloginfo('name')?></h1>
                 <p class="hero__description">
-                    Découvrez des destinations uniques et inoubliables avec Voyages du Monde. Nous vous offrons des expériences authentiques, des paysages à couper le
+                <?php bloginfo('description');?>
                 </p>
                 <p class="hero__courriel">
-                    <a href="#">info@cmaisonneuve.qc.ca</a>
+                    <?php bloginfo( 'admin_email' ); ?>
                 </p>
                 <p class="hero__adresse">
                     5800 Sherbrooke-est Montréal (Québec) H1X 2A2
