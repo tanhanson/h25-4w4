@@ -320,7 +320,7 @@ footer {
 
 .piedpage {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .piedpage__s1 {
   display: flex;
