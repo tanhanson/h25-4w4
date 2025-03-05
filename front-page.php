@@ -51,7 +51,7 @@
             </form>
     </section>
 
-    <section class="galerie">
+    <!-- <section class="galerie">
         
             <h4>Nos destinations favorites</h4>
             <div class="galerie global">
@@ -87,7 +87,7 @@
                 <img src="images/paysage10.jpg" alt="paysage10" class="galerie__img">
             </figure>
         </div>
-        </section>
+        </section> -->
 
         <section class="populaire">
             <div class="global">

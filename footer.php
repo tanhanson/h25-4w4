@@ -9,10 +9,18 @@
             "container" => "nav",
             
         )); ?>
+         <div class="hero__icone">
+                    <img src="https://s2.svgbox.net/social.svg?ic=facebook&color=000000" width="20" height="20">
+                    <img src="https://s2.svgbox.net/social.svg?ic=linkedin&color=000000" width="20" height="20">
+                    <img src="https://s2.svgbox.net/social.svg?ic=wordpress&color=000000" width="20" height="20">
+                    <img src="https://s2.svgbox.net/social.svg?ic=snapchat&color=000000" width="20" height="20">
+                    <img src="https://s2.svgbox.net/social.svg?ic=discord&color=000000" width="20" height="20">
+                </div>
     </div>
     <div class="piedpage__s1__adresse">
     <div class="piedpage__s1__adresse__coord">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi 
+   
+    <p>3800 Rue Sherbrooke E, Montreal QC H1X2A2</p>
     </div>
     <div class="piedpage__s1__adresse__recherche">
         <?php get_search_form(); ?>
