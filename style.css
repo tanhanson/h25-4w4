@@ -246,7 +246,12 @@ h4 {
   background-color: rgb(236, 104, 104);
 }
 
+.post-categories {
 
+  display: flex;
+  justify-content: space-evenly;
+  
+}
 
 
 
