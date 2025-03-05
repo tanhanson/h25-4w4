@@ -124,6 +124,12 @@ p {
 .carte__contenu {
   background-color: aliceblue;
 }
+
+.carte__bouton {
+  background-color: white;
+  border-radius: 10px;
+  
+}
 /*///////////////////
 * Les layouts
 //////////////////// */
