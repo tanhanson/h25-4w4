@@ -253,7 +253,13 @@ h4 {
   
 }
 
+.post-categories li{
 
+  list-style-type: none;
+  background-color: white;
+  border-radius: 5px;
+ 
+}
 
 
 
