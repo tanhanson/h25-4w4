@@ -126,10 +126,19 @@ p {
 }
 
 .carte__bouton {
-  background-color: white;
+  background-color: rgb(236, 104, 104);
   border-radius: 10px;
-  
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+
 }
+
+
+
+
+
+
 /*///////////////////
 * Les layouts
 //////////////////// */
@@ -250,7 +259,6 @@ h4 {
 .carte__contenu {
   background-color: rgb(243, 243, 243);
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
-
 }
 
 .post-categories {
@@ -265,10 +273,15 @@ h4 {
   list-style-type: none;
   background-color: rgb(236, 104, 104);
   border-radius: 5px;
- 
+  padding: 10px 20px;
+
 }
 
+.post-categories a {
 
+  text-decoration: none;
+  color: white;
+}
 
 .hero {
   background-image: url("images/maldives.jpg");
