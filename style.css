@@ -248,8 +248,9 @@ h4 {
 }
 
 .carte__contenu {
+  background-color: rgb(243, 243, 243);
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
 
-  background-color: rgb(236, 104, 104);
 }
 
 .post-categories {
@@ -262,7 +263,7 @@ h4 {
 .post-categories li{
 
   list-style-type: none;
-  background-color: white;
+  background-color: rgb(236, 104, 104);
   border-radius: 5px;
  
 }
