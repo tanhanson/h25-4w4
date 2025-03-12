@@ -21,7 +21,7 @@ $hero_couleur = get_theme_mod('hero_couleur', '');
                 </p>
                 <p class ="hero__auteur">Auteur : <?php echo $hero_auteur ?></p>
                 <div class="hero__icone">
-                   <?php get_template_part('gabarits/icones'); ?>
+                   <?php get_template_part('gabarits/icones.php'); ?>
                 </div>
 
                 <button class = "hero__bouton" type = "submit"> S'INSCRIRE</button>
