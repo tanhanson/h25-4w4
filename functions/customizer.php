@@ -79,7 +79,7 @@ function theme_4w4_customize_register($wp_customize) {
   
   ////////////////////////////////// ajout de la donnée image en arrière-plan
   
-  $wp_customize->add_setting('hero_couleur', array(
+  $wp_customize->add_setting('hero_background', array(
     'default' => '',
     'sanitize_callback' => 'esc_url_raw',
   ));
