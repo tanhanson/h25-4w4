@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php 
-$hero_auteur = get_theme_mod('hero_auteur', 'Default Title');
+$hero_auteur = get_theme_mod('hero_auteur', 'Hanson Tan');
 $hero_background = get_theme_mod('hero_background', '');
 $footer_addresse = get_theme_mod('');
 $hero_couleur = get_theme_mod('hero_couleur', '');
@@ -21,11 +21,7 @@ $hero_couleur = get_theme_mod('hero_couleur', '');
                 </p>
                 <p class ="hero__auteur">Auteur : <?php echo $hero_auteur ?></p>
                 <div class="hero__icone">
-                    <img src="https://s2.svgbox.net/social.svg?ic=facebook&color=000000" width="20" height="20">
-                    <img src="https://s2.svgbox.net/social.svg?ic=linkedin&color=000000" width="20" height="20">
-                    <img src="https://s2.svgbox.net/social.svg?ic=wordpress&color=000000" width="20" height="20">
-                    <img src="https://s2.svgbox.net/social.svg?ic=snapchat&color=000000" width="20" height="20">
-                    <img src="https://s2.svgbox.net/social.svg?ic=discord&color=000000" width="20" height="20">
+                   <?php get_template_part('gabarits/icones'); ?>
                 </div>
 
                 <button class = "hero__bouton" type = "submit"> S'INSCRIRE</button>
