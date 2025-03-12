@@ -64,9 +64,22 @@ function theme_4w4_customize_register($wp_customize) {
     'type' => 'text',
   
   ));
+
+  $wp_customize->add_setting('hero_couleur', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  
+  ////////////////////////////////// ajout du contrôle de la donnée
+  
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'hero_couleur', array(
+    'label' => __('Image en arrière plan', 'theme_4w4'),
+    'section' => 'hero_section',
+  )));
+  
   ////////////////////////////////// ajout de la donnée image en arrière-plan
   
-  $wp_customize->add_setting('hero_background', array(
+  $wp_customize->add_setting('hero_couleur', array(
     'default' => '',
     'sanitize_callback' => 'esc_url_raw',
   ));
@@ -74,7 +87,7 @@ function theme_4w4_customize_register($wp_customize) {
   ////////////////////////////////// ajout du contrôle de la donnée
   
   $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background', array(
-    'label' => __('Image en arrière plan', 'theme_4w4'),
+    'label' => __('Selection de couleur', 'theme_4w4'),
     'section' => 'hero_section',
   )));
   
