@@ -65,6 +65,18 @@ function theme_4w4_customize_register($wp_customize) {
   
   ));
 
+  $wp_customize->add_setting('footer_copyright', array(
+    'default' => __('Texte de copyright', 'theme_4w4'),
+    'sanitize_callback' => 'sanitize_text_field'
+  ));
+  
+  $wp_customize->add_control('footer_copyright', array(
+    'label' => __('Copyright', 'theme_4w4'),
+    'section' => 'footer_section',
+    'type' => 'text',
+  
+  ));
+
   $wp_customize->add_setting('hero_couleur', array(
     'default' => '',
     'sanitize_callback' => 'esc_url_raw',
