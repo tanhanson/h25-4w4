@@ -77,6 +77,18 @@ function theme_4w4_customize_register($wp_customize) {
   
   ));
 
+  $wp_customize->add_setting('hero_404', array(
+    'default' => __('Texte de erreur', 'theme_4w4'),
+    'sanitize_callback' => 'sanitize_text_field'
+  ));
+  
+  $wp_customize->add_control('hero_404', array(
+    'label' => __('Erreur', 'theme_4w4'),
+    'section' => 'hero_section',
+    'type' => 'text',
+  
+  ));
+
   $wp_customize->add_setting('hero_couleur', array(
     'default' => '',
     'sanitize_callback' => 'esc_url_raw',
@@ -102,6 +114,20 @@ function theme_4w4_customize_register($wp_customize) {
     'label' => __('Selection de couleur', 'theme_4w4'),
     'section' => 'hero_section',
   )));
+
+  $wp_customize->add_setting('hero_imageErreur', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  
+  ////////////////////////////////// ajout du contrôle de la donnée
+  
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_imageErreur', array(
+    'label' => __('Selection de couleur', 'theme_4w4'),
+    'section' => 'hero_section',
+  )));
+
+  
   
   }
   
