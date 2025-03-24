@@ -399,25 +399,26 @@ h4 {
 
 .conteneur-erreur {
   background: white;
-  padding: 30px;
+  padding: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 70vw;
+  height: 100vh;
 }
 
 .conteneur-erreur p {
 
-  font-size: 18px;
+  font-size: 2rem;
   color: #333;
 }
 .image-erreur {
-  width: 25%;
-  height: 40%;
-  margin: 20px 0;
+ background-size: cover;
+ background-repeat: no-repeat;
 }
 .bouton-accueil {
   display: inline-block;
@@ -431,6 +432,11 @@ h4 {
 }
 .bouton-accueil:hover {
   background-color: #e5533d;
+}
+
+.bouton-erreur {
+  display: flex;
+  gap: 2rem;
 }
 
 /*
@@ -454,9 +460,6 @@ footer {
   display: flex;
   gap: 0.5rem;
 }
-
-
-
 
 .piedpage {
   display: flex;

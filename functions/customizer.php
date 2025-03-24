@@ -1,28 +1,26 @@
 <?php
 
 function theme_4w4_customize_register($wp_customize) {
-    // Le code pour ajouter des sections, des réglages et des contrôles ira ici.
-    // Création d'une novuelle section dans le customizer
+    // Création d'une nouvelle section pour le Hero
     $wp_customize->add_section('hero_section', array(
       'title' => __('Section Hero', 'theme_4w4'),
       'priority' => 30,
   ));
   
-  ////////////////////////////////// ajout de la donnée
+  ////////////////////////////////// ajout de la donnée pour Hero
   $wp_customize->add_setting('hero_auteur', array(
     'default' => __('Hanson Tan', 'theme_4w4'),
     'sanitize_callback' => 'sanitize_text_field'
   ));
   
-  ////////////////////////////////// ajout du contrôle de la donnée
+  ////////////////////////////////// ajout du contrôle pour Hero
   $wp_customize->add_control('hero_auteur', array(
     'label' => __('Auteur', 'theme_4w4'),
     'section' => 'hero_section',
     'type' => 'text',
-  
   ));
   
-  /////////////////////////////// footer
+  /////////////////////////////// Footer
   
   $wp_customize->add_section('footer_section', array(
     'title' => __('Section Footer', 'theme_4w4'),
@@ -37,7 +35,6 @@ function theme_4w4_customize_register($wp_customize) {
     'label' => __('Adresse', 'theme_4w4'),
     'section' => 'footer_section',
     'type' => 'text',
-  
   ));
   
   $wp_customize->add_setting('footer_telephone', array(
@@ -46,12 +43,10 @@ function theme_4w4_customize_register($wp_customize) {
   ));
   
   $wp_customize->add_control('footer_telephone', array(
-    'label' => __('Telephone', 'theme_4w4'),
+    'label' => __('Téléphone', 'theme_4w4'),
     'section' => 'footer_section',
     'type' => 'text',
-  
   ));
-  
   
   $wp_customize->add_setting('footer_mission', array(
     'default' => __('Notre mission est de', 'theme_4w4'),
@@ -62,7 +57,6 @@ function theme_4w4_customize_register($wp_customize) {
     'label' => __('Mission', 'theme_4w4'),
     'section' => 'footer_section',
     'type' => 'text',
-  
   ));
 
   $wp_customize->add_setting('footer_copyright', array(
@@ -74,62 +68,62 @@ function theme_4w4_customize_register($wp_customize) {
     'label' => __('Copyright', 'theme_4w4'),
     'section' => 'footer_section',
     'type' => 'text',
-  
   ));
 
-  $wp_customize->add_setting('hero_404', array(
-    'default' => __('Texte de erreur', 'theme_4w4'),
+  // Ajout de la section "Erreur"
+  $wp_customize->add_section('erreur_section', array(
+    'title' => __('Section Erreur', 'theme_4w4'),
+    'priority' => 30,
+  ));
+  
+  ////////////////////////////////// ajout de la donnée pour Erreur
+  $wp_customize->add_setting('erreur_404', array(
+    'default' => __('Texte d\'erreur', 'theme_4w4'),
     'sanitize_callback' => 'sanitize_text_field'
   ));
   
-  $wp_customize->add_control('hero_404', array(
+  $wp_customize->add_control('erreur_404', array(
     'label' => __('Erreur', 'theme_4w4'),
-    'section' => 'hero_section',
+    'section' => 'erreur_section',
     'type' => 'text',
-  
   ));
 
-  $wp_customize->add_setting('hero_couleur', array(
+  // Ajout de la couleur pour Erreur
+  $wp_customize->add_setting('erreur_couleur', array(
     'default' => '',
     'sanitize_callback' => 'esc_url_raw',
   ));
   
-  ////////////////////////////////// ajout du contrôle de la donnée
-  
-  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'hero_couleur', array(
-    'label' => __('Image en arrière plan', 'theme_4w4'),
-    'section' => 'hero_section',
+  ////////////////////////////////// ajout du contrôle pour Erreur
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'erreur_couleur', array(
+    'label' => __('Image en arrière-plan', 'theme_4w4'),
+    'section' => 'erreur_section',
   )));
   
-  ////////////////////////////////// ajout de la donnée image en arrière-plan
-  
-  $wp_customize->add_setting('hero_background', array(
+  ////////////////////////////////// ajout de la donnée image en arrière-plan pour Erreur
+  $wp_customize->add_setting('erreur_background', array(
     'default' => '',
     'sanitize_callback' => 'esc_url_raw',
   ));
   
-  ////////////////////////////////// ajout du contrôle de la donnée
-  
-  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background', array(
-    'label' => __('Selection de couleur', 'theme_4w4'),
-    'section' => 'hero_section',
+  ////////////////////////////////// ajout du contrôle de la donnée pour Erreur
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'erreur_background', array(
+    'label' => __('Sélection de couleur', 'theme_4w4'),
+    'section' => 'erreur_section',
   )));
 
-  $wp_customize->add_setting('hero_imageErreur', array(
+  // Ajout de l'image d'erreur pour la section Erreur
+  $wp_customize->add_setting('erreur_imageErreur', array(
     'default' => '',
     'sanitize_callback' => 'esc_url_raw',
-));
+  ));
 
-$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_imageErreur', array(
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'erreur_imageErreur', array(
     'label' => __('Image d\'erreur', 'theme_4w4'),
-    'section' => 'hero_section',
-)));
+    'section' => 'erreur_section',
+  )));
+}
 
+add_action('customize_register', 'theme_4w4_customize_register');
 
-  
-  
-  }
-  
-  add_action('customize_register', 'theme_4w4_customize_register');
-
-  ?>
+?>
