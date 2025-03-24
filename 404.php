@@ -6,6 +6,7 @@
 <h1>404</h1>
 <p> <?php echo $hero_erreur ?></p>
 <p> <?php echo $hero_solution?></p>
+<img src="<?php echo esc_url(get_theme_mod('hero_imageErreur')); ?>" alt="Image d'erreur">
 
  
    
