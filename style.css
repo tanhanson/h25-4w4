@@ -33,6 +33,10 @@ body {
   font-size: 16px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 
 }
 
@@ -350,6 +354,16 @@ h4 {
   .inscription form {
     flex-direction: column;
     align-items: stretch;
+
+    
+  }
+  .menu-404-container {
+    flex-direction: row;
+    
+  }
+  .menu{
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 .inscription label {
@@ -419,16 +433,16 @@ h4 {
 .conteneur-erreur p {
 
   font-size: 1.5rem;
-  background-color: rgba(109, 109, 109, 0.);
+  background-color: rgba(211, 211, 211, 0.5);
   width: 50%;
   font-weight: bold;
   
 }
 
 .conteneur-erreur h1 {
-  background-color: rgba(109, 109, 109, 0.3);
+  background-color: rgba(211, 211, 211, 0.5);
   width: 50%;
-  font-size: 7rem;
+  
   font-weight: bold;
 }
 .image-erreur {
@@ -442,7 +456,6 @@ h4 {
   width: 10rem;
   height: 3rem;
   padding: 2px;
-  
   font-size: 18px;
   font-weight: bold;
   color: rgb(98, 175, 239);
@@ -507,6 +520,8 @@ h4 {
   font-size: 1rem;
  
 }
+
+
 
 /*
  ------------------------------ Layout du pied de page  
