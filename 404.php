@@ -1,7 +1,7 @@
 <?php
     $erreur_404 = get_theme_mod('erreur_404', '404');
     $erreur_message = get_theme_mod('erreur_erreur', 'Oops, vous avez échoué sur l\'île 404!');
-    $erreur_solution = get_theme_mod('erreur_solution', 'Pas de panique, cher membre explorateur!, Vous avez dérivé un peu trop loin des destinations de rêve que notre club a soigneusement sélectionnés pour vous. REprenez votre périple en cliquant sur "Accueil" pour découvrir à nouveau nos voyages d\'exception!');
+    $erreur_solution = get_theme_mod('erreur_solution', 'Pas de panique, cher membre explorateur!, Vous avez dérivé un peu trop loin des destinations de rêve que notre club a soigneusement sélectionnés pour vous. Reprenez votre périple en cliquant sur "Accueil" pour découvrir à nouveau nos voyages d\'exception!');
     $background_erreur = get_theme_mod('erreur_imageErreur', '');
     $couleur_404 = get_theme_mod('couleur_404', '#eeee22'); 
 ?>
