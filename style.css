@@ -520,6 +520,52 @@ h4 {
   font-size: 1rem;
  
 }
+/* --------------------------------------- Categories
+*/
+.destination {
+  width: 1100px;
+  margin: 0 auto;  /* Centers the container horizontally */
+  padding: 20px;   /* Optional: Adds some padding inside the container */
+}
+
+.destination__titre,
+.destination__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.categorie__ul {
+  gap: 10px;
+  list-style-type: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categorie__ul__li {
+  
+  padding: 10px;
+  flex-grow: 1;  
+  border-radius: 15px;
+  background-color: rgb(236, 104, 104);
+  color: white;
+  text-align: center;
+} 
+  .categorie__ul__li:hover {
+    background-color: rgb(200, 80, 80);  /* Changes the background color on hover */
+  }
+  .destination__list a {
+    color:rgb(98, 175, 239);
+  }
+
+  /* Style pour le bouton actif */
+.categorie__ul__li.active {
+  background-color: rgb(104, 11, 11);
+  color: white; /* texte en blanc */
+ 
+}
+
 
 
 

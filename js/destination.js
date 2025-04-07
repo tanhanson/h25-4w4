@@ -7,10 +7,19 @@
 
     function parcourir_bouton(){
         const categorie__ul__li = document.querySelectorAll(".categorie__ul__li");
+        
         categorie__ul__li.forEach(elm => {
-            elm.addEventListener('click', (e) => {
+            elm.addEventListener('mousedown', (e) => {
                 // Empêche l'événement de propagation si nécessaire
                 e.preventDefault();
+
+                 // Retirer la classe 'active' de tous les boutons
+            categorie__ul__li.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Ajouter la classe 'active' au bouton cliqué
+            e.target.classList.add('active');
 
                 // Logique de filtrage selon la catégorie ou une action spécifique
                 const categorieId = e.target.dataset.categoryId;
@@ -22,6 +31,19 @@
         });
     }
 
+    /* 
+
+    const categorie__ul__li = document.querySelectorAll(".categorie__ul__li");
+    console.log("categorie__ul__li.length = ",categorie__ul__li.length);
+    categorie__ul__li.forEach(elm => {
+        elm.addEventListener('mousedown',function(){
+        console.log(elm.tagName)
+        console.log("elm.dataset.categorie_id=", elm.dataset.categorie_id)
+        })
+        
+        })
+    */
+        
     function fetchArticles(categoryId) {
         const apiUrl = `${domaine}/wp-json/wp/v2/posts?categories=${categoryId}`;
         fetch(apiUrl)
@@ -34,6 +56,7 @@
                     const articleElement = document.createElement('div');
                     articleElement.innerHTML = `
                         <h3>${article.title.rendered}</h3>
+                        <p>${article.excerpt.rendered}</p>
                         <a href="${article.link}">Lire plus</a>
                     `;
                     destinationList.appendChild(articleElement);
