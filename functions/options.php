@@ -31,6 +31,14 @@ wp_enqueue_style('mon-style-style', get_stylesheet_uri());
       '/js/destination.js'),
       true
   );
+  wp_enqueue_script(
+    'carrousel',
+    get_template_directory_uri() . '/js/carrousel.js',
+    array(),
+    filemtime(get_template_directory() . 
+    '/js/carrousel.js'),
+    true
+);
 }
 /*
 

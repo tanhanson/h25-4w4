@@ -1,48 +1,5 @@
 <?php get_header(); ?>
-<?php 
-
-$hero_background = get_theme_mod('hero_background', '');
-$hero_couleur = get_theme_mod('hero_couleur', '');
-
-?>
-
-    <section class = "hero" style="background-image: url(<?php echo $hero_background?>); color : <?php echo $hero_couleur ?>">
-            <div class="hero__contenu global">
-                <?php get_template_part('gabarits/hero'); ?>
-                <div class="hero__icone">
-                   <?php get_template_part('gabarits/icones'); ?>
-                </div>
-
-                <button class = "hero__bouton" type = "submit"> S'INSCRIRE</button>
-            </div>
-    </section>
-
-    <section class = inscription>
-         
-            <form>
-                <div class="inscription__info">
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" placeholder="Écrivez votre nom">
-                </div>
-    
-                <div class="inscription__info">
-                    <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Écrivez votre prénom">
-                </div>
-    
-                <div class="inscription__info">
-                    <label for="courriel">Courriel</label>
-                    <input type="email" id="courriel" name="courriel" placeholder="Écrivez votre courriel">
-                </div>
-    
-                <div class="inscription__info">
-                    <label for="telephone">Téléphone</label>
-                    <input type="tel" id="telephone" name="telephone" placeholder="Écrivez votre téléphone">
-                </div>
-    
-                <button type="submit">S'INSCRIRE</button>
-            </form>
-    </section>
+<?php get_template_part("gabarits/hero"); ?>
 
     <!-- <section class="galerie">
         
