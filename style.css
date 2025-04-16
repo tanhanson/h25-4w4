@@ -636,7 +636,7 @@ h4 {
 
 /* Bouton "Afficher" */
 .destination__toggle-button {
-  background-color: rgb(236, 104, 104);
+  background-color: #ec6868;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -752,4 +752,9 @@ footer {
 .footer__copyright {
   text-align: center;
   width: 1100px;
+}
+
+.wave{
+  position: relative;
+  top: 10px;
 }
