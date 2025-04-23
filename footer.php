@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 $footer_adresse = get_theme_mod('footer_adresse', '5800 Sherbrooke-est Montréal (Québec) H1X 2A2');
 $footer_telephone = get_theme_mod('footer_telephone', '(514-254-7131)');
 $footer_mission = get_theme_mod('footer_mission', 'Notre mission est de inspirer et de faciliter vos voyages en vous offrant des expériences inoubliables. Que ce soit une escapade citadine, une aventure en pleine nature ou un séjour détente, nous vous guidons vers les meilleures destinations avec des conseils personnalisés et des offres exclusives. Voyagez mieux, explorez plus!');
@@ -12,9 +13,13 @@ Tous les noms de marques, logos et autres elements proteges par la propriete int
 
 Pour toute demande d autorisation ou de collaboration, veuillez nous contacter a e6194865@cmaisonneuve.qc.ca.');
 
+$footer_couleur = get_theme_mod('footer_couleur', '#aaa');
+
+genere_vague($footer_couleur);
+
 
 ?>
-<footer>
+<footer style="background-color: <?= $footer_couleur ?>">
 
 <div class="piedpage" >
 
