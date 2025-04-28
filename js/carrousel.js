@@ -1,50 +1,73 @@
 (function () {
-    console.log("carrousel.js");
-  
-    const radios = document.querySelectorAll('.hero__radio__input');
-    const slides = document.querySelectorAll('.hero__carrousel');
-    let currentIndex = 0;
-    let intervalID;
-  
-    console.log("Nombre d'inputs =", radios.length);
-    console.log("Nombre de slides =", slides.length);
-  
-    function afficherSlide(index) {
+  console.log("carrousel.js");
+
+  const radios = document.querySelectorAll('.hero__radio__input');
+  const slides = document.querySelectorAll('.hero__carrousel');
+  const heroAnimations = document.querySelectorAll('.hero__animation');
+  let currentIndex = 0;
+  let intervalID;
+
+  const slideCount = slides.length;
+
+  function afficherSlide(index) {
       slides.forEach((slide, i) => {
-        if (i === index) {
-          slide.classList.add('active');
-        } else {
-          slide.classList.remove('active');
-        }
-        radios[i].checked = (i === index);
+          slide.classList.toggle('active', i === index);
+          radios[i].checked = (i === index);
       });
+
+      relancerAnimations();
+
       currentIndex = index;
-    }
-  
-    function slideSuivant() {
-      const prochainIndex = (currentIndex + 1) % slides.length;
+  }
+
+  function slideSuivant() {
+      const prochainIndex = (currentIndex + 1) % slideCount;
       afficherSlide(prochainIndex);
-    }
-  
-    function startInterval() {
-      intervalID = setInterval(() => {
-        slideSuivant();
-      }, 5000);
-    }
-  
-    function restartInterval() {
+  }
+
+  function startInterval() {
+      intervalID = setInterval(slideSuivant, 5000);
+  }
+
+  function restartInterval() {
       clearInterval(intervalID);
       startInterval();
-    }
-  
-    radios.forEach((radio, index) => {
-      radio.addEventListener('change', function () {
-        afficherSlide(index);
-        restartInterval();
+  }
+
+  let animationIndex = 0;
+
+  function alternerAnimations() {
+      if (animationIndex % 2 === 0) {
+          heroAnimations[0].style.display = "block";
+          heroAnimations[0].classList.add("animation-left");
+          heroAnimations[1].style.display = "none";
+          heroAnimations[1].classList.remove("hero__animation--slide-up");
+      } else {
+          heroAnimations[1].style.display = "block";
+          heroAnimations[1].classList.add("hero__animation--slide-up");
+          heroAnimations[0].style.display = "none";
+          heroAnimations[0].classList.remove("animation-left");
+      }
+      animationIndex++;
+  }
+
+  function relancerAnimations() {
+      alternerAnimations();
+
+      heroAnimations.forEach((element) => {
+          element.classList.remove("hidden");
+          void element.offsetWidth;
       });
-    });
-  
-    afficherSlide(0); // Important! Affiche le premier slide
-    startInterval();  // Démarre le carrousel automatique
-  })();
-  
+  }
+
+  radios.forEach((radio, index) => {
+      radio.addEventListener('change', function () {
+          afficherSlide(index);
+          restartInterval();
+      });
+  });
+
+  afficherSlide(0);
+  startInterval();
+
+})();
