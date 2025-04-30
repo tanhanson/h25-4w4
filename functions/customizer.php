@@ -21,7 +21,7 @@ function theme_4w4_customize_register($wp_customize) {
     ));
 
     // Ajout des contrôles pour les images de fond dans Hero
-    for ($k = 0; $k < 6; $k++) {
+    for ($k = 0; $k < 3; $k++) {
         $wp_customize->add_setting('hero_background_' . $k, array(
             'default' => '',
             'sanitize_callback' => 'esc_url_raw',

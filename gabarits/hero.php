@@ -1,5 +1,5 @@
 <?php 
-$hero_carrousel_count = get_theme_mod('hero_carrousel_count', 6); // Récupérer le nombre d'images à afficher
+$hero_carrousel_count = get_theme_mod('hero_carrousel_count', 3); // Récupérer le nombre d'images à afficher
 $hero_background = [];
 for ($k = 0; $k < $hero_carrousel_count; $k++) {
     $hero_background[$k] = get_theme_mod('hero_background_' . $k, ''); // Récupérer l'image de fond pour chaque carrousel
@@ -12,7 +12,7 @@ $hero_couleur = get_theme_mod('hero_text_color', '#ffffff'); // Récupérer la c
 <section class="hero" style="color: <?php echo $hero_couleur; ?>;">
     <!-- Carrousel -->
     <?php for ($k = 0; $k < $hero_carrousel_count; $k++) : ?>
-        <div class="hero__carrousel" style="background-image: url(<?php echo esc_url($hero_background[$k]); ?>)">
+        <div class="hero__caroussel" style="background-image: url(<?php echo esc_url($hero_background[$k]); ?>)">
         </div>
     <?php endfor; ?>
 
@@ -25,14 +25,19 @@ $hero_couleur = get_theme_mod('hero_text_color', '#ffffff'); // Récupérer la c
 
     <!-- Contenu du Hero -->
     <div class="hero__contenu global">
-        <div class="hero__animation">
+        <div class="hero__animation hero__animation--active">
             <h1 class="hero__titre"><?php bloginfo('name'); ?></h1>
             <p class="hero__description"><?php bloginfo('description'); ?></p>
+        </div>
+        <div class="hero__animation">
+            <h1 class="hero__titre">lorem</h1>
+            <p class="hero__description">lorem ?></p>
         </div>
         <div class="hero__animation">
             <h1 class="hero__titre"><?php bloginfo('name'); ?></h1>
             <p class="hero__description"><?php bloginfo('description'); ?></p>
         </div>
+      
         <p class="hero__courriel"><?php echo antispambot(get_bloginfo('admin_email')); ?></p>
         <p class="hero__adresse">5800 Sherbrooke-est - Montréal (Québec) H1X 2A2</p>
         <p class="hero__auteur">Auteur : <?php echo $hero_auteur; ?></p>

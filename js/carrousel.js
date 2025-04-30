@@ -1,73 +1,57 @@
-(function () {
-  console.log("carrousel.js");
+(function(){
+    console.log("caroussel.js")
+    let hero__radio__input = document.querySelectorAll(".hero__radio__input")
+    let hero__caroussels = document.querySelectorAll(".hero__caroussel");
+    let hero__animation = document.querySelectorAll(".hero__animation");
 
-  const radios = document.querySelectorAll('.hero__radio__input');
-  const slides = document.querySelectorAll('.hero__carrousel');
-  const heroAnimations = document.querySelectorAll('.hero__animation');
-  let currentIndex = 0;
-  let intervalID;
+    console.log("hero__radio__input.length : ",hero__radio__input.length);
 
-  const slideCount = slides.length;
+    let indexActuel = 0;
+    const total = hero__radio__input.length;
 
-  function afficherSlide(index) {
-      slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
-          radios[i].checked = (i === index);
-      });
+    function changementAutomatique(index){
+        hero__radio__input[index].checked = true;
 
-      relancerAnimations();
+        // Supprime "active" de toutes les caroussels
+        hero__caroussels.forEach(c => c.classList.remove("active"));
 
-      currentIndex = index;
-  }
+        // Ajoute "active" au carrousel correspondant
+        if (hero__caroussels[index]) {
+            hero__caroussels[index].classList.add("active");
+        }
 
-  function slideSuivant() {
-      const prochainIndex = (currentIndex + 1) % slideCount;
-      afficherSlide(prochainIndex);
-  }
+        changementAnimation(indexActuel);
+    }
 
-  function startInterval() {
-      intervalID = setInterval(slideSuivant, 5000);
-  }
+    function changementAnimation(index){
+        hero__radio__input[index].checked = true;
 
-  function restartInterval() {
-      clearInterval(intervalID);
-      startInterval();
-  }
+        // Supprime "active" de toutes les caroussels
+        hero__animation.forEach(c => c.classList.remove("hero__animation--active"));
 
-  let animationIndex = 0;
+        // Ajoute "active" au carrousel correspondant
+        if (hero__animation[index]) {
+            hero__animation[index].classList.add("hero__animation--active");
+        }
+    }
 
-  function alternerAnimations() {
-      if (animationIndex % 2 === 0) {
-          heroAnimations[0].style.display = "block";
-          heroAnimations[0].classList.add("animation-left");
-          heroAnimations[1].style.display = "none";
-          heroAnimations[1].classList.remove("hero__animation--slide-up");
-      } else {
-          heroAnimations[1].style.display = "block";
-          heroAnimations[1].classList.add("hero__animation--slide-up");
-          heroAnimations[0].style.display = "none";
-          heroAnimations[0].classList.remove("animation-left");
-      }
-      animationIndex++;
-  }
 
-  function relancerAnimations() {
-      alternerAnimations();
+    // Déclenche une fois au chargement
+    changementAutomatique(indexActuel);
 
-      heroAnimations.forEach((element) => {
-          element.classList.remove("hidden");
-          void element.offsetWidth;
-      });
-  }
 
-  radios.forEach((radio, index) => {
-      radio.addEventListener('change', function () {
-          afficherSlide(index);
-          restartInterval();
-      });
-  });
+    // Change toutes les 5 secondes
+    setInterval(() => {
+        indexActuel = (indexActuel + 1) % total;
+        changementAutomatique(indexActuel);
+    }, 5000); 
 
-  afficherSlide(0);
-  startInterval();
+    // Quand l'utilisateur clique sur un bouton radio
+    hero__radio__input.forEach((radio, index) => {
+        radio.addEventListener('change', () => {
+            indexActuel = index;
+            changementAutomatique(index);
+        });
+    });
 
 })();
