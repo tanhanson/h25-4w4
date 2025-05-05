@@ -1,37 +1,69 @@
 <?php
 
 function theme_4w4_customize_register($wp_customize) {
-    // Création d'une nouvelle section pour le Hero
+    // SECTION HERO
     $wp_customize->add_section('hero_section', array(
         'title' => __('Section Hero', 'theme_4w4'),
         'priority' => 30,
     ));
 
-    // Ajout de la donnée pour l'auteur dans Hero
+    // Auteur
     $wp_customize->add_setting('hero_auteur', array(
         'default' => __('Hanson Tan', 'theme_4w4'),
         'sanitize_callback' => 'sanitize_text_field',
     ));
 
-    // Ajout du contrôle pour l'auteur dans Hero
     $wp_customize->add_control('hero_auteur', array(
         'label' => __('Auteur', 'theme_4w4'),
         'section' => 'hero_section',
         'type' => 'text',
     ));
 
-    // Ajout des contrôles pour les images de fond dans Hero
-    for ($k = 0; $k < 3; $k++) {
+    // Couleur du texte
+    $wp_customize->add_setting('hero_text_color', array(
+        'default' => '#ffffff',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'hero_text_color', array(
+        'label' => __('Couleur du texte', 'theme_4w4'),
+        'section' => 'hero_section',
+    )));
+
+    // Nombre d'images du carrousel
+    $wp_customize->add_setting('hero_carrousel_count', array(
+        'default' => 3,
+        'sanitize_callback' => 'absint',
+    ));
+
+    $wp_customize->add_control('hero_carrousel_count', array(
+        'label' => __('Nombre d\'images pour le carrousel', 'theme_4w4'),
+        'section' => 'hero_section',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => 1,
+            'max' => 10,
+        ),
+    ));
+
+    // Champs dynamiques d'images en arrière-plan
+    $nombre_images = get_theme_mod('hero_carrousel_count', 3);
+
+    for ($k = 0; $k < $nombre_images; $k++) {
         $wp_customize->add_setting('hero_background_' . $k, array(
             'default' => '',
             'sanitize_callback' => 'esc_url_raw',
         ));
 
         $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background_' . $k, array(
-            'label' => __('Image en arrière plan ' . ($k + 1), 'theme_4w4'),
+            'label' => __('Image en arrière-plan ' . ($k + 1), 'theme_4w4'),
             'section' => 'hero_section',
         )));
     }
+
+    // (... les autres sections comme footer, erreur, etc. peuvent suivre ici sans conflit)
+
+add_action('customize_register', 'theme_4w4_customize_register');
 
     // Section Footer
     $wp_customize->add_section('footer_section', array(
