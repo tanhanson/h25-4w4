@@ -62,7 +62,9 @@ function categories_liste($parent_slug) {
   </path>
 </svg>
 <?php }
-
+/**
+ * Affiche dynamiquement les icônes sociales configurées dans le Customizer
+ */
 function afficher_icones_sociales() {
     $nb_icones = get_theme_mod('nombre_icones_sociales', 3);
 

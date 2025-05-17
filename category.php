@@ -13,6 +13,10 @@
     </div>
 </section>
 
+<?php
 
+?>
 
 <?php get_footer(); ?>
+
+<!--------------------------------------- L'UTILISATION DE "categorie_par_destination()" EST DANS GENERATEUR.PHP -->
