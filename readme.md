@@ -1,5 +1,5 @@
-# TP1
-## Concevoir un site Wordpress pour un club de voyagge
+# TP2
+## Concevoir un site Wordpress pour un club de voyage
  
 ### Auteur: Hanson Tan
  
