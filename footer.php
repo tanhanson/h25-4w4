@@ -1,78 +1,79 @@
-<?php
+<?php  
+    $footer_adresse = get_theme_mod('footer_adresse', '5800 Sherbrooke-est Montréal (Québec) H1X 2A2');  
+    $footer_telephone = get_theme_mod('footer_telephone', '(514) 254-7131');  
+    $footer_mission = get_theme_mod('footer_mission', 'Notre mission consiste de...'); 
+    $footer_couleur = get_theme_mod('footer_couleur', '#cccccc');
+    $footer_image_destination = get_theme_mod('footer_image_destination');
 
-$footer_adresse = get_theme_mod('footer_adresse', '5800 Sherbrooke-est Montréal (Québec) H1X 2A2');
-$footer_telephone = get_theme_mod('footer_telephone', '(514-254-7131)');
-$footer_mission = get_theme_mod('footer_mission', 'Notre mission est de inspirer et de faciliter vos voyages en vous offrant des expériences inoubliables. Que ce soit une escapade citadine, une aventure en pleine nature ou un séjour détente, nous vous guidons vers les meilleures destinations avec des conseils personnalisés et des offres exclusives. Voyagez mieux, explorez plus!');
-$footer_copyright = get_theme_mod('footer_copyright', 'Copyright © 2025 ClubVoyage. Tous droits reserves.
-
-Tout le contenu publie sur ce site, y compris, mais sans s y limiter, les textes, images, videos, logos, graphiques et mises en page, est la propriete exclusive de ClubVoyage ou de ses partenaires et est protege par les lois sur la propriete intellectuelle. Toute reproduction, distribution, modification ou utilisation non autorisee du contenu, en tout ou en partie, est strictement interdite sans consentement ecrit prealable.
-
-Les informations fournies sur ce site sont a titre informatif uniquement. ClubVoyage s efforce d assurer l exactitude et la mise a jour des contenus, mais ne peut garantir l absence d erreurs ou d omissions. En consequence, nous declinons toute responsabilite quant a l utilisation des informations presentees sur ce site.
-
-Tous les noms de marques, logos et autres elements proteges par la propriete intellectuelle mentionnes sur ce site appartiennent a leurs proprietaires respectifs.
-
-Pour toute demande d autorisation ou de collaboration, veuillez nous contacter a e6194865@cmaisonneuve.qc.ca.');
-
-$footer_couleur = get_theme_mod('footer_couleur', '#aaa');
-
-genere_vague($footer_couleur);
-
-
+    if (function_exists('genere_vague')) {
+        genere_vague($footer_couleur);
+    }
 ?>
-<footer style="background-color: <?= $footer_couleur ?>">
 
-<div class="piedpage" >
-
-<section class="piedpage__s1">
-
-    <div class="piedpage__s1__externe">
-    <h3>Lien sur le voyage</h3>
-        <?php wp_nav_menu(array(
-            "menu" => "externe",
-            "container" => "nav",
-            
-        )); ?>
-        
-    </div>
-    <div class="piedpage__s1__adresse">
-    <h3>Zone de recherche</h3>
-    <div class="piedpage__s1__adresse__coord">
-   
-    <p><?php echo $footer_adresse?></p>
-    <p>Téléphone : <?php echo $footer_telephone?></p>
-    </div>
-    <div class="piedpage__s1__adresse__recherche">
-        <?php get_search_form(); ?>
-    </div>
-    </div>
+<footer style="background-color: <?= esc_attr($footer_couleur); ?>; position: relative;">
     
-    <div class="piedpage__s1__description">
-    <h3>Lien sur le voyage</h3>
-        <p><?php echo $footer_mission?></p>
+    
+    
+    <div class="piedpage">
+        <?php
+    $image_footer = get_theme_mod('footer_destination_image');
+    if ($image_footer) {
+        echo '<div class="footer__background-image">';
+        echo '<img src="' . esc_url($image_footer) . '" alt="Image de fond du footer">';
+        echo '</div>';
+    }
+    ?>
+        <section class="piedpage__s1">
+            <!-- Liens sur les voyages -->
+            <div class="piedpage__s1__externe">
+                <h4>LIENS SUR LES VOYAGES</h4>
+                <?php wp_nav_menu(array(
+                    'menu' => 'externe',
+                    'container' => 'nav',
+                )); ?>
+            </div>
+
+            <!-- Adresse et recherche -->
+            <div class="piedpage__s1__adresse">
+                <h4>ADRESSE ET RECHERCHE</h4>
+                <div class="piedpage__s1__adresse__coord">
+                    <?= esc_html($footer_adresse); ?>
+                </div>
+                <div class="piedpage__s1__description">
+                    Téléphone: <?= esc_html($footer_telephone); ?>
+                </div>
+                <div class="piedpage__s1__adresse__recherche">
+                    <?php get_search_form(); ?>
+                </div>
+            </div>
+
+            <!-- Mission -->
+            <div class="piedpage__s1__mission">
+                <h4>MISSION DU CLUB</h4>
+                <div class="piedpage__s1__mission__texte">
+                    <?= esc_html($footer_mission); ?>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bas du footer : icônes -->
+        <section class="piedpage__s2">
+            <div class="piedpage__s2__icone">
+                <?php
+                $social_networks = ['linkedin', 'behance', 'github'];
+                foreach ($social_networks as $network) {
+                    $url = get_theme_mod('footer_social_' . $network . '_url');
+                    $icon = get_theme_mod('footer_social_' . $network . '_icon');
+                    if ($url && $icon) {
+                        echo '<a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer">';
+                        echo '<img src="' . esc_url($icon) . '" alt="' . esc_attr($network) . ' icon" />';
+                        echo '</a>';
+                    }
+                }
+                ?>
+            </div>
+        </section>
     </div>
-
-</section>
-<section class="piedpage__s2">
-<section class="piedpage__s3">
-
-</section>
-</div>
-<div class="footer__icone">
-        <div class="icones">
-        <?php get_template_part('gabarits/icones'); ?>
-        </div>
-         <?php wp_nav_menu(array(
-                    'menu' => 'principal',
-                    'container' => 'div',
-                    'container_class' => 'entete__menu',
-
-                ));?>
-        <div class="footer__copyright">
-    <p><?php echo $footer_copyright ?></p>
-</div>
-</div>
-
-
-
 </footer>
-<?php wp_footer()?>
+
+<?php wp_footer(); ?>

@@ -35,12 +35,12 @@ $hero_couleur = get_theme_mod('hero_text_color', '#ffffff');
     <!-- Contenu -->
     <div class="hero__contenu global">
         <div class="hero__animation hero__animation--active">
-            <h1 class="hero__titre"><?php bloginfo('name'); ?></h1>
-            <p class="hero__description"><?php bloginfo('description'); ?></p>
+            <h1 class="hero__titre">Voyagez plus loin </h1>
+            <p class="hero__description">Découvrez des destinations uniques avec notre club passionné d'aventures. </p>
         </div>
         <div class="hero__animation">
-            <h1 class="hero__titre">Lorem</h1>
-            <p class="hero__description">Lorem ipsum</p>
+            <h1 class="hero__titre">Rencontrez la communauté</h1>
+            <p class="hero__description">Partagez vos expériences avec d'autres passionnés de voyage.</p>
         </div>
         <div class="hero__animation">
             <h1 class="hero__titre"><?php bloginfo('name'); ?></h1>

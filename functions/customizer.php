@@ -116,6 +116,48 @@ add_action('customize_register', 'theme_4w4_customize_register');
         'type' => 'text',
     ));
 
+ // Section Footer réseaux sociaux (à ajouter dans customize_register)
+$wp_customize->add_section('footer_social_section', array(
+    'title'    => __('Icônes sociales du pied de page', 'mon_theme'),
+    'priority' => 30,
+));
+
+// Image de destination dans le footer
+$wp_customize->add_setting('footer_destination_image', array(
+    'default'           => '',
+    'sanitize_callback' => 'esc_url_raw',
+));
+$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_destination_image', array(
+    'label'    => __('Image de destination (Footer)', 'theme_4w4'),
+    'section'  => 'footer_social_section',
+    'settings' => 'footer_destination_image',
+)));
+
+
+
+$social_networks = ['linkedin', 'behance', 'github'];
+
+foreach ($social_networks as $network) {
+    $wp_customize->add_setting('footer_social_' . $network . '_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control('footer_social_' . $network . '_url', array(
+        'label'   => ucfirst($network) . ' URL',
+        'section' => 'footer_social_section',
+        'type'    => 'url',
+    ));
+
+    $wp_customize->add_setting('footer_social_' . $network . '_icon', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_social_' . $network . '_icon', array(
+        'label'    => ucfirst($network) . ' Icône',
+        'section'  => 'footer_social_section',
+        'settings' => 'footer_social_' . $network . '_icon',
+    )));
+}
     // Section Erreur
     $wp_customize->add_section('erreur_section', array(
         'title' => __('Section Erreur', 'theme_4w4'),
@@ -228,6 +270,15 @@ add_action('customize_register', 'theme_4w4_customize_register');
         'label' => __('Couleur de texte du Footer', 'theme_4w4'),
         'section' => 'footer_section',
     )));
+
+    $wp_customize->add_section('footer_social_section', array(
+    'title'    => __('Footer - Image et Réseaux Sociaux', 'theme_4w4'),
+    'priority' => 35,
+));
+
+
+
+
 }
 
 add_action('customize_register', 'theme_4w4_customize_register');

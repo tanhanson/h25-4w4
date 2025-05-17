@@ -153,8 +153,105 @@ p {
   color: white;
   text-decoration: none;
 }
+/* -------------------------------------- Style des single-posts */
+.single-post article {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(236, 104, 104);
+}
+
+.haut-page img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.haut-page h2 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  color: rgb(236, 104, 104); 
+}
+
+.haut-page p {
+  font-size: 0.9rem;
+  color: rgb(236, 104, 104);
+  margin-bottom: 1.5rem;
+}
+
+.categories {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.categories a {
+  color:rgb(236, 104, 104);
+  text-decoration: none;
+  margin-right: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.categories a:hover {
+  color: #005f73;
+  text-decoration: underline;
+}
+
+.description div {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.temperatures p {
+  font-size: 1rem;
+  color: rgb(236, 104, 104);
+  margin-bottom: 0.4rem;
+}
+/* -------------------------------------- Style des single-posts */
+/* --------------------------------------- Style des categories */
+
+.categorie__titre,
+.categorie__description {
+ background-color: rgb(236, 104, 104);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  margin: 1rem auto;
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
+  text-align: center;
+}
+
+.categorie__titre {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(236, 104, 104);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.categorie__description {
+  font-size: 1.15rem;
+  color: white;
+  line-height: 1.6;
+}
 
 
+.categorie__description {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /*///////////////////
 * Les layouts
 //////////////////// */
@@ -781,18 +878,90 @@ h4 {
  ------------------------------ Layout du pied de page  
 */
 footer {
-  background-color: #ec6868;
-  color: black;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  color: white;
+  padding: 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
-.footer__icone{
+.footer__background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.1;
+  overflow: hidden;
+  border-radius: 20px;
+  pointer-events: none; /* évite de bloquer les liens */
+}
+.footer__background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.footer__content-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 120px); /* Ajustez pour laisser de l'espace pour les icônes */
+  z-index: 0;
+  opacity: 0.1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
+
+
+
+.piedpage {
+  position: relative;
+  z-index: 1;
+}
+
+.piedpage__s1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.piedpage__s1 > div {
+  flex: 1;
+  min-width: 250px;
+}
+
+.piedpage__s2 {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.piedpage__s2__icone {
+  display: flex;
+  gap: 12px;
+}
+
+.piedpage__s2__icone img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.piedpage__s2__icone a:hover img {
+  transform: scale(1.1);
+}
+
+
+
+
 
 .icones{
   display: flex;

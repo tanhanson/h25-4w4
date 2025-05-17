@@ -62,3 +62,21 @@ function categories_liste($parent_slug) {
   </path>
 </svg>
 <?php }
+
+function afficher_icones_sociales() {
+    $nb_icones = get_theme_mod('nombre_icones_sociales', 3);
+
+    echo '<div class="social-icons">';
+    for ($i = 0; $i < $nb_icones; $i++) {
+        $url = esc_url(get_theme_mod("social_url_$i"));
+        $icone = esc_url(get_theme_mod("social_icon_$i"));
+
+        if ($url && $icone) {
+            echo '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">';
+            echo '<img src="' . $icone . '" alt="Icône sociale" style="width: 32px; height: 32px; margin-right: 8px;">';
+            echo '</a>';
+        }
+    }
+    echo '</div>';
+}
+
