@@ -63,7 +63,18 @@ $hero_couleur = get_theme_mod('hero_text_color', '#ffffff');
 
         <!-- Icônes sociales -->
         <div class="hero__icone">
-            <?php get_template_part('gabarits/icones'); ?>
+             <?php
+                $social_networks = ['linkedin', 'behance', 'github'];
+                foreach ($social_networks as $network) {
+                    $url = get_theme_mod('footer_social_' . $network . '_url');
+                    $icon = get_theme_mod('footer_social_' . $network . '_icon');
+                    if ($url && $icon) {
+                        echo '<a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer">';
+                        echo '<img src="' . esc_url($icon) . '" alt="' . esc_attr($network) . ' icon" />';
+                        echo '</a>';
+                    }
+                }
+                ?>
         </div>
 
         <!-- Bouton d'appel à l'action -->
