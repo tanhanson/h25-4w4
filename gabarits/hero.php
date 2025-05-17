@@ -19,13 +19,18 @@ $hero_couleur = get_theme_mod('hero_text_color', '#ffffff');
     <?php endforeach; ?>
 
     <!-- Radios -->
-    <div class="hero__radio">
-        <?php foreach ($hero_background as $index => $bg_url): ?>
-            <?php if (!empty($bg_url)): ?>
+    
+<div class="hero__radio">
+    <?php foreach ($hero_background as $index => $bg_url): ?>
+        <?php if (!empty($bg_url)): ?>
+            <label class="hero__radio__label">
                 <input class="hero__radio__input" data-id_radio="<?php echo esc_attr($index); ?>" type="radio" name="carrousel" <?php echo ($index === 0) ? 'checked' : ''; ?>>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </div>
+                <span class="custom-radio-style"></span>
+            </label>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+
 
     <!-- Contenu -->
     <div class="hero__contenu global">

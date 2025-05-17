@@ -4,27 +4,46 @@
  * Génére une liste de sous-catégories
  * @param string $parent_slug Le slug de la catégorie parente
  */
-function categories_liste($parent_slug){
-    $parent_category = get_category_by_slug($parent_slug);
- 
-    if ($parent_category) {
-        $parent_id = $parent_category->term_id;
-    }
- 
-    $sous_categories = get_categories(array(
-        'parent' => $parent_id, // Filtrer par le parent "destination"
-        'hide_empty' => true, // Ne pas afficher les catégories vides
-    ));
- 
-    if (!empty($sous_categories)) {
-        echo '<ul class="categorie__ul">';
-        foreach ($sous_categories as $categorie) {
-            // Afficher le nom de chaque sous-catégorie
-            echo '<li  data-category-id="' . esc_html($categorie->term_id) . '" class="categorie__ul__li">' . esc_html($categorie->name) . '</li>';
+function categorie_par_destination($exclude_populaire = false, $cat_a_retirer = '') {
+    $categories = get_categories();
+    
+    echo '<ul class="post-categories">';
+    foreach ($categories as $cat) {
+        $current_cat = strtolower(trim($cat->name));
+        $excluded_cat = !empty($cat_a_retirer) ? strtolower(trim($cat_a_retirer)) : '';
+        
+        // Si on doit exclure "populaire" et que la catégorie est "populaire", on skip
+        if (($exclude_populaire && $current_cat === 'populaire') || $current_cat === $excluded_cat) {
+            continue;
         }
-        echo '</ul>';
+        
+        echo '<li><a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a></li>';
+    }
+    echo '</ul>';
+}
+
+/**
+ * Affiche les sous-catégories d'une catégorie parente
+ * @param string $parent_slug Slug de la catégorie parente
+ */
+function categories_liste($parent_slug) {
+    $parent_category = get_category_by_slug($parent_slug);
+    if ($parent_category) {
+        $sous_categories = get_categories(array(
+            'parent' => $parent_category->term_id,
+            'hide_empty' => true
+        ));
+        
+        if (!empty($sous_categories)) {
+            echo '<ul class="categorie__ul">';
+            foreach ($sous_categories as $categorie) {
+                echo '<li data-category-id="' . esc_attr($categorie->term_id) . '" class="categorie__ul__li">' . esc_html($categorie->name) . '</li>';
+            }
+            echo '</ul>';
+        }
     }
 }
+
 /**
  * Génère une ou plusieurs vagues svg
  */

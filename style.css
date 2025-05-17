@@ -142,6 +142,17 @@ p {
   color: white;
 
 }
+.carte__categories{
+  list-style-type: none;
+  background-color: rgb(236, 104, 104);
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.carte__categories a {
+  color: white;
+  text-decoration: none;
+}
 
 
 /*///////////////////
@@ -270,6 +281,8 @@ h4 {
 
   display: flex;
   justify-content: space-evenly;
+   list-style: none;
+    padding-left: 0;
   
 }
 
@@ -553,8 +566,46 @@ h4 {
  
 }
 
-/* ---------------------------------------------------- radio
-*/
+/* ---------------------------------------------------- radio */
+
+.hero__radio {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.hero__radio__label {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.hero__radio__input {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.custom-radio-style {
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.hero__radio__input:checked + .custom-radio-style {
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+
+
 
 
 .hero {
